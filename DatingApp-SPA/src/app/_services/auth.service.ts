@@ -20,6 +20,8 @@ export class AuthService {
 
   changeMemberPhoto(photoUrl: string) {
     this.photoUrl.next(photoUrl);
+    this.currentUser.photoUrl = photoUrl;
+    localStorage.setItem("user", JSON.stringify(this.currentUser));
   }
 
   login(model: any) {
