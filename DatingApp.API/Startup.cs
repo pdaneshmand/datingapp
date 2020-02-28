@@ -61,6 +61,7 @@ namespace DatingApp.API
 
                 };
             });
+            services.AddScoped<LogUserActivity>();
         }
 
         private void JWtBearDefaults(AuthenticationOptions obj)
