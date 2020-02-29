@@ -49,6 +49,7 @@ export class MemberListComponent implements OnInit {
     this.userParams.maxAge = 99;
     this.loadUsers();
   }
+
   loadUsers() {
     this.userService
       .getUsers(
