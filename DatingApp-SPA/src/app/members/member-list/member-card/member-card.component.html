@@ -17,7 +17,11 @@
           <i class="fa fa-heart"></i>
         </button>
         <button class="btn btn-primary mx-1">
-          <i class="fa fa-envelope"></i>
+          <i
+            class="fa fa-envelope"
+            [routerLink]="['/members/', user.id]"
+            [queryParams]="{ tab: 3 }"
+          ></i>
         </button>
       </li>
     </ul>
