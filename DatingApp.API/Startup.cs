@@ -100,14 +100,34 @@ namespace DatingApp.API
             // app.UseHttpsRedirection();
 
             app.UseRouting();
+
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
+            #region Front Configuration
+            //Angular Configuration
+
+            //Angular Application - NetCore 2.2 and 3 was same
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
+            //For Net Core 2.2
+            // app.UseMvc(routes=>{
+            //     routes.MapSpaFallbackRoute(
+            //         name: "spa-fallback",
+            //         defaults: new {controller = "Fallback",action = "Index"}
+            //     );
+            // })
+            #endregion
+            
             //Map controller to our api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                //For Angular Application - Just Net Core 3.0
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }
